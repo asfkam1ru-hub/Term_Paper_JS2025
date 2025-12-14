@@ -15,137 +15,51 @@ Term_Paper_JS2025/
 ├── README.md
 └── .gitignore
 
-Структура frontend
-frontend/
-├── public/
-│   └── index.html
-├── src/
-│   ├── app/
-│   │   ├── routes/
-│   │   │   └── AppRouter.tsx          # конфигурация роутинга
-│   │   ├── store/                     # (если используем глобальное состояние)
-│   │   │   └── index.ts
-│   │   ├── hooks/
-│   │   │   ├── useTraining.ts         # общий хук для сессии тренировки
-│   │   │   └── useDictionary.ts       # общий хук для словаря
-│   │   ├── types/
-│   │   │   └── index.ts               # общие типы приложения
-│   │   └── AppProviders.tsx           # провайдеры (Router, Theme и т.п.)
-│   │
-│   ├── pages/
-│   │   ├── HomePage/
-│   │   │   ├── HomePage.tsx           # приветственный экран / выбор режима
-│   │   │   └── index.ts
-│   │   ├── TrainingPage/
-│   │   │   ├── TrainingPage.tsx       # основная тренировка слов
-│   │   │   └── index.ts
-│   │   ├── DictionaryPage/
-│   │   │   ├── DictionaryPage.tsx     # управление словарём
-│   │   │   └── index.ts
-│   │   ├── StatisticsPage/
-│   │   │   ├── StatisticsPage.tsx     # страница статистики
-│   │   │   └── index.ts
-│   │   └── NotFoundPage/
-│   │       ├── NotFoundPage.tsx       # 404
-│   │       └── index.ts
-│   │
-│   ├── features/
-│   │   ├── training/
-│   │   │   ├── components/
-│   │   │   │   ├── TrainingSession.tsx  # логика и UI конкретной сессии
-│   │   │   │   ├── QuestionCard.tsx     # карточка с текущим словом/вариантами
-│   │   │   │   └── ProgressBar.tsx      # прогресс по сессии
-│   │   │   ├── api/
-│   │   │   │   └── trainingApi.ts       # работа с хранилищем слов/статистикой
-│   │   │   └── types.ts
-│   │   ├── dictionary/
-│   │   │   ├── components/
-│   │   │   │   ├── WordList.tsx         # список/таблица слов
-│   │   │   │   └── WordForm.tsx         # форма добавления/редактирования слова
-│   │   │   ├── api/
-│   │   │   │   └── dictionaryApi.ts
-│   │   │   └── types.ts
-│   │   └── statistics/
-│   │       ├── components/
-│   │       │   └── StatsSummary.tsx     # виджет с основными метриками
-│   │       └── api/
-│   │           └── statisticsApi.ts
-│   │
-│   ├── widgets/
-│   │   ├── Layout/
-│   │   │   ├── AppLayout.tsx           # общий layout с хедером/меню
-│   │   │   ├── AppHeader.tsx
-│   │   │   └── AppSidebar.tsx
-│   │   └── WordOfTheDay/
-│   │       └── WordOfTheDay.tsx        # виджет "слово дня"
-│   │
-│   ├── shared/
-│   │   ├── components/
-│   │   │   ├── Loader/
-│   │   │   │   └── Loader.tsx          # индикатор загрузки
-│   │   │   └── ErrorMessage/
-│   │   │       └── ErrorMessage.tsx    # отображение ошибок
-│   │   ├── utils/
-│   │   │   ├── validators.ts           # валидации форм и т.п.
-│   │   │   └── formatters.ts           # форматирование текста, дат и т.п.
-│   │   ├── constants/
-│   │   │   └── routes.ts               # константы путей роутера
-│   │   └── types/
-│   │       └── common.ts               # общие типы, enum’ы
-│   │
-│   ├── styles/
-│   │   ├── global.css
-│   │   └── variables.css
-│   │
-│   ├── tests/
-│   │   └── setupTests.ts               # конфиг тестов (RTL, jest-dom)
-│   │
-│   ├── App.tsx
-│   └── main.tsx
+Word-trainer/
+├── README.md
+├── package-lock.json
 │
-├── package.json
-├── tsconfig.json
-├── vite.config.ts
-├── eslint.config.mjs (или .js)
-└── jest.config.cjs (или .js)
+├── frontend/
+│   ├── package.json
+│   ├── vite.config.ts
+│   ├── jest.config.mjs
+│   └── src/
+│       ├── main.tsx
+│       ├── App.tsx
+│       ├── types.ts
+│       ├── ui-library.d.ts
+│       ├── setupTests.ts
+│       ├── data.ts
+│       ├── dictionaryData.ts
+│       ├── storage.ts
+│       ├── test/
+│       │   └── styleMock.ts
+│       ├── pages/
+│       │   ├── HomePage.tsx
+│       │   ├── DecksPage.tsx
+│       │   ├── DictionaryPage.tsx
+│       │   ├── TrainingPage.tsx
+│       │   └── StatisticsPage.tsx
+│       ├── App.test.tsx
+│       └── DeckList.test.tsx
+│
+└── ui-library/
+    ├── package.json
+    ├── vite.config.ts
+    ├── jest.config.mjs
+    └── src/
+        ├── index.ts
+        ├── types.ts
+        └── components/
+            ├── Layout.tsx
+            ├── DecksPanel.tsx
+            ├── DeckList.tsx
+            ├── DeckList.test.tsx
+            ├── WordList.tsx
+            ├── WordDetails.tsx
+            ├── FlashcardTrainer.tsx
+            └── WordOfTheDayWidget.tsx
 
-Структура ui-library
-ui-library/
-├── src/
-│   ├── Button/
-│   │   ├── Button.tsx
-│   │   ├── Button.types.ts
-│   │   ├── Button.test.tsx
-│   │   └── index.ts
-│   ├── Input/
-│   │   ├── Input.tsx
-│   │   ├── Input.types.ts
-│   │   ├── Input.test.tsx
-│   │   └── index.ts
-│   ├── TextArea/
-│   │   ├── TextArea.tsx
-│   │   ├── TextArea.types.ts
-│   │   ├── TextArea.test.tsx
-│   │   └── index.ts
-│   ├── Card/
-│   │   ├── Card.tsx
-│   │   ├── Card.types.ts
-│   │   ├── Card.test.tsx
-│   │   └── index.ts
-│   ├── theme/
-│   │   ├── palette.ts                  # цвета
-│   │   ├── typography.ts               # шрифты/размеры
-│   │   └── index.ts
-│   ├── types/
-│   │   └── common.ts                   # общие типы библиотеки
-│   └── index.ts                        # публичный API (реэкспорт компонентов)
-│
-├── package.json
-├── tsconfig.json
-├── vite.config.ts                      # демо-стенд / сборка
-├── eslint.config.js
-├── jest.config.js
-└── .gitignore
 
 Используемые библиотеки
 
