@@ -91,3 +91,12 @@ http://localhost:5173/
 
 
 
+![alt text](<screenshots/Screenshot 2025-12-14 at 23.45.56.png>)
+
+![alt text](<screenshots/Screenshot 2025-12-14 at 23.47.54.png>)
+
+![alt text](<screenshots/Screenshot 2025-12-14 at 23.48.16.png>)
+
+![alt text](<screenshots/Screenshot 2025-12-14 at 23.48.39.png>)
+
+![alt text](<screenshots/Screenshot 2025-12-14 at 23.48.49.png>)
