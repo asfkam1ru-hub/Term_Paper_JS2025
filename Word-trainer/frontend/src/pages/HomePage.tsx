@@ -45,9 +45,8 @@ export const HomePage: React.FC<HomePageProps> = ({
   const learnedCount = getLearnedWordsCount(history)
   const averageAccuracy = getAverageAccuracy(history)
 
-  const trainingButtonLabel = buildButtonLabel({
-    label: 'Начать тренировку'
-  })
+  // ✅ buildButtonLabel ожидает string, а не объект
+  const trainingButtonLabel = buildButtonLabel('Начать тренировку')
 
   return (
     <div className='home'>
