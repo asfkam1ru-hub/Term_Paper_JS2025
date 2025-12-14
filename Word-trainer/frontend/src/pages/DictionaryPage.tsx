@@ -139,14 +139,14 @@ export const DictionaryPage: React.FC<DictionaryPageProps> = ({
       updated = dictionary.map(entry =>
         entry.id === formState.id
           ? {
-              ...entry,
-              term: formState.term.trim(),
-              translation: formState.translation.trim(),
-              example: formState.example.trim(),
-              exampleTranslation:
+            ...entry,
+            term: formState.term.trim(),
+            translation: formState.translation.trim(),
+            example: formState.example.trim(),
+            exampleTranslation:
                 formState.exampleTranslation.trim(),
-              difficulty: formState.difficulty
-            }
+            difficulty: formState.difficulty
+          }
           : entry
       )
     } else {

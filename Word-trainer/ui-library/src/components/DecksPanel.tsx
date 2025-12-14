@@ -89,9 +89,9 @@ export const DecksPanel: React.FC<DecksPanelProps> = ({
     const updated = decks.map(deck =>
       deck.id === deckId
         ? {
-            ...deck,
-            wordIds: deck.wordIds.filter(id => id !== wordId)
-          }
+          ...deck,
+          wordIds: deck.wordIds.filter(id => id !== wordId)
+        }
         : deck
     )
     onUpdateDecks(updated)
@@ -224,9 +224,11 @@ export const DecksPanel: React.FC<DecksPanelProps> = ({
       previous === wordId ? null : previous
     )
     setWordForms(previous => {
-      const { [wordId]: _removed, ...rest } = previous
-      return rest
+      const next = { ...previous }
+      delete next[wordId]
+      return next
     })
+
   }
 
   const handleSaveWordChanges = (wordId: string): void => {
@@ -253,8 +255,9 @@ export const DecksPanel: React.FC<DecksPanelProps> = ({
     onUpdateDictionary(updatedDictionary)
 
     setWordForms(previous => {
-      const { [wordId]: _removed, ...rest } = previous
-      return rest
+      const next = { ...previous }
+      delete next[wordId]
+      return next
     })
 
     setEditingWordId(previous =>

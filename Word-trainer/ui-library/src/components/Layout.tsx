@@ -11,13 +11,13 @@ type LayoutProps = {
   isHistoryError: boolean
 }
 
-export const Layout: React.FC<LayoutProps> = ({
+export function Layout({
   currentPage,
   onChangePage,
   children,
   isDictionaryError,
   isHistoryError
-}) => {
+}: LayoutProps): JSX.Element {
   const handleNavClick = (page: Page): void => {
     onChangePage(page)
   }
@@ -31,9 +31,7 @@ export const Layout: React.FC<LayoutProps> = ({
           <button
             type='button'
             className={`layout__nav-button ${
-              currentPage === 'home'
-                ? 'layout__nav-button--active'
-                : ''
+              currentPage === 'home' ? 'layout__nav-button--active' : ''
             }`}
             onClick={() => handleNavClick('home')}
           >
@@ -43,9 +41,7 @@ export const Layout: React.FC<LayoutProps> = ({
           <button
             type='button'
             className={`layout__nav-button ${
-              currentPage === 'training'
-                ? 'layout__nav-button--active'
-                : ''
+              currentPage === 'training' ? 'layout__nav-button--active' : ''
             }`}
             onClick={() => handleNavClick('training')}
           >
@@ -55,9 +51,7 @@ export const Layout: React.FC<LayoutProps> = ({
           <button
             type='button'
             className={`layout__nav-button ${
-              currentPage === 'dictionary'
-                ? 'layout__nav-button--active'
-                : ''
+              currentPage === 'dictionary' ? 'layout__nav-button--active' : ''
             }`}
             onClick={() => handleNavClick('dictionary')}
           >
@@ -67,9 +61,7 @@ export const Layout: React.FC<LayoutProps> = ({
           <button
             type='button'
             className={`layout__nav-button ${
-              currentPage === 'decks'
-                ? 'layout__nav-button--active'
-                : ''
+              currentPage === 'decks' ? 'layout__nav-button--active' : ''
             }`}
             onClick={() => handleNavClick('decks')}
           >
@@ -79,9 +71,7 @@ export const Layout: React.FC<LayoutProps> = ({
           <button
             type='button'
             className={`layout__nav-button ${
-              currentPage === 'statistics'
-                ? 'layout__nav-button--active'
-                : ''
+              currentPage === 'statistics' ? 'layout__nav-button--active' : ''
             }`}
             onClick={() => handleNavClick('statistics')}
           >
@@ -93,15 +83,15 @@ export const Layout: React.FC<LayoutProps> = ({
       <main className='layout__main'>
         {isDictionaryError && (
           <div className='layout__error'>
-            Произошла ошибка при загрузке словаря. Вы можете
-            очистить локальное хранилище на странице Dictionary.
+            Произошла ошибка при загрузке словаря. Вы можете очистить локальное
+            хранилище на странице Dictionary.
           </div>
         )}
 
         {isHistoryError && (
           <div className='layout__error'>
-            Произошла ошибка при загрузке истории тренировок.
-            Новые результаты будут сохранены корректно.
+            Произошла ошибка при загрузке истории тренировок. Новые результаты
+            будут сохранены корректно.
           </div>
         )}
 

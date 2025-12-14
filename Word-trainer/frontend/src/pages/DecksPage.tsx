@@ -3,7 +3,7 @@ import type {
   DictionaryEntry,
   DictionaryDeck
 } from '../types'
-import { DecksPanel } from '../components/DecksPanel'
+import { DecksPanel } from 'ui-library'
 
 type DecksPageProps = {
   dictionary: DictionaryEntry[]

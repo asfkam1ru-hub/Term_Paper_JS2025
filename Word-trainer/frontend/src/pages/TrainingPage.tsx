@@ -142,8 +142,8 @@ export const TrainingPage: React.FC<TrainingPageProps> = ({
         totalQuestions === 0
           ? 0
           : Math.round(
-              (correctAnswers / totalQuestions) * 100
-            )
+            (correctAnswers / totalQuestions) * 100
+          )
 
       const session: TrainingSession = {
         id: `session-${Date.now().toString()}`,
@@ -193,8 +193,8 @@ export const TrainingPage: React.FC<TrainingPageProps> = ({
       totalQuestions === 0
         ? 0
         : Math.round(
-            (correctAnswers / totalQuestions) * 100
-          )
+          (correctAnswers / totalQuestions) * 100
+        )
 
     return (
       <div className='training-page'>

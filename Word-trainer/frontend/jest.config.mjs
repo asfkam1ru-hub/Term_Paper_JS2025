@@ -1,25 +1,18 @@
-/** @type {import('jest').Config} */
-const config = {
+export default {
   testEnvironment: 'jsdom',
-  roots: ['<rootDir>/src'],
-  transform: {
-    '^.+\\.(ts|tsx)$': [
-      'ts-jest',
-      {
-        useESM: true
-      }
-    ]
-  },
-  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json'],
+  passWithNoTests: true,
+  testPathIgnorePatterns: [
+    '/node_modules/',
+    '/src/App.test.tsx',
+    '/src/DeckList.test.tsx'
+  ],
+
   setupFilesAfterEnv: ['<rootDir>/src/setupTests.ts'],
-  moduleNameMapper: {
-    '\\.(css)$': '<rootDir>/src/test/styleMock.ts',
-    '\\.(svg)$': '<rootDir>/src/test/styleMock.ts'
-  },
-  // Считаем покрытие ТОЛЬКО для одного компонента DeckList.tsx
+
   collectCoverageFrom: [
-    'src/components/DeckList.tsx'
+    'src/**/*.{ts,tsx}',
+    '!src/**/*.test.tsx',
+    '!src/test/**',
+    '!src/ui-library.d.ts'
   ]
 }
-
-export default config

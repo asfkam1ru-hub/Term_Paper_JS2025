@@ -1,7 +1,6 @@
 import React from 'react'
 import type { DictionaryEntry, TrainingSession } from '../types'
-import { WordOfTheDayWidget } from '../components/WordOfTheDayWidget'
-import { buildButtonLabel } from '../../../ui-library/src'
+import { WordOfTheDayWidget, buildButtonLabel } from 'ui-library'
 
 type HomePageProps = {
   dictionary: DictionaryEntry[]

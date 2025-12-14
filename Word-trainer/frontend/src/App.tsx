@@ -13,7 +13,7 @@ import type {
   TrainingSession,
   DictionaryDeck
 } from './types'
-import { Layout } from './components/Layout'
+import { Layout } from 'ui-library'
 import { HomePage } from './pages/HomePage'
 import { TrainingPage } from './pages/TrainingPage'
 import { DictionaryPage } from './pages/DictionaryPage'

@@ -1,11 +1,9 @@
 import React from 'react'
 import type {
-  DictionaryEntry,
   TrainingSession
 } from '../types'
 
 type StatisticsPageProps = {
-  dictionary: DictionaryEntry[]
   history: TrainingSession[]
 }
 
@@ -40,7 +38,7 @@ const calculateLearnedWords = (
 
 export const StatisticsPage: React.FC<
   StatisticsPageProps
-> = ({ dictionary, history }) => {
+> = ({ history }) => {
   const averageAccuracy =
     calculateAverageAccuracy(history)
   const learnedWordsCount =

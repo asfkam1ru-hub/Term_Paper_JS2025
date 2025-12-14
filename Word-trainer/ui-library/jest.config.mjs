@@ -1,25 +1,35 @@
-/** @type {import('jest').Config} */
-const config = {
-  // Готовый пресет для TypeScript + ESM
+export default {
   preset: 'ts-jest/presets/default-esm',
-
   testEnvironment: 'jsdom',
-  roots: ['<rootDir>/src'],
 
-  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json'],
-
-  // Говорим Jest, что .ts файлы — ESM
   extensionsToTreatAsEsm: ['.ts', '.tsx'],
 
-  // Считаем покрытие по всем TS-файлам библиотеки
-  collectCoverageFrom: ['src/**/*.{ts,tsx}'],
+  transform: {
+    '^.+\\.(ts|tsx)$': [
+      'ts-jest',
+      {
+        useESM: true,
+        tsconfig: './tsconfig.json',
+      },
+    ],
+  },
 
-  // Настройки для ts-jest
-  globals: {
-    'ts-jest': {
-      useESM: true
-    }
-  }
+  // если где-то будут импорты с ".js" (часто в ESM), это помогает
+  moduleNameMapper: {
+    '^(\\.{1,2}/.*)\\.js$': '$1',
+  },
+
+  // чтобы покрытие считалось ТОЛЬКО для DeckList (как ты и хочешь)
+  collectCoverage: true,
+  collectCoverageFrom: ['src/components/DeckList.tsx'],
+  coverageReporters: ['text', 'lcov'],
+
+  coverageThreshold: {
+    global: {
+      statements: 90,
+      branches: 90,
+      functions: 90,
+      lines: 90,
+    },
+  },
 }
-
-export default config

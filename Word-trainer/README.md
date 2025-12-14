@@ -91,7 +91,3 @@ http://localhost:5173/
 
 
 
-
-![alt text](<screenshots/Screenshot 2025-11-24 at 20.40.42.png>)
-![alt text](screenshots/image.png)
-![alt text](<screenshots/image copy.png>)
